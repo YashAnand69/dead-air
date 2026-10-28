@@ -1,0 +1,70 @@
+{
+  "models/minilm-751bff3/tokenizer_config.json": {
+    "bytes": 366,
+    "sha256": "9261e7d79b44c8195c1cada2b453e55b00aeb81e907a6664974b4d7776172ab3"
+  },
+  "models/minilm-751bff3/special_tokens_map.json": {
+    "bytes": 125,
+    "sha256": "b6d346be366a7d1d48332dbc9fdf3bf8960b5d879522b7799ddba59e76237ee3"
+  },
+  "models/minilm-751bff3/config.json": {
+    "bytes": 650,
+    "sha256": "7135149f7cffa1a573466c6e4d8423ed73b62fd2332c575bf738a0d033f70df7"
+  },
+  "models/minilm-751bff3/tokenizer.json": {
+    "bytes": 711661,
+    "sha256": "da0e79933b9ed51798a3ae27893d3c5fa4a201126cef75586296df9b4d2c62a0"
+  },
+  "models/minilm-751bff3/README.md": {
+    "bytes": 1767,
+    "sha256": "63ea99bf681a2e9eda4f6a537d5ed8fda95d1677111656da37e9cfd080c3af02"
+  },
+  "models/minilm-751bff3/vocab.txt": {
+    "bytes": 231508,
+    "sha256": "07eced375cec144d27c900241f3e339478dec958f92fddbc551f295c992038a3"
+  },
+  "models/minilm-751bff3/onnx/model_quantized.onnx": {
+    "bytes": 22972370,
+    "sha256": "afdb6f1a0e45b715d0bb9b11772f032c399babd23bfc31fed1c170afc848bdb1"
+  },
+  "runtime/onnx-1.22.0/ort-wasm-simd-threaded.jsep.wasm": {
+    "bytes": 21596019,
+    "sha256": "c46655e8a94afc45338d4cb2b840475f88e5012d524509916e505079c00bfa39"
+  },
+  "runtime/onnx-1.22.0/ort-wasm-simd-threaded.jsep.mjs": {
+    "bytes": 44484,
+    "sha256": "08fb86ec433c78bfb032c5d84a68b8e8e5a8d81268fa39e24314179a5767a5b9"
+  },
+  "fonts/dmsans-OFL.txt": {
+    "bytes": 4482,
+    "sha256": "9af36190332437f5ecd09974de43c1f7c77a310a996cdd8ceb25628b458840e1"
+  },
+  "fonts/librecaslondisplay-OFL.txt": {
+    "bytes": 4403,
+    "sha256": "9cc8cef15f5e8bcbe99a13ee8d268f6f6f6a5811cd1ed05056ef4608c9b16fd1"
+  },
+  "fonts/font-4.ttf": {
+    "bytes": 91588,
+    "sha256": "199b2a7deefd8d7d9bae05d34902c4c6486bd11b8e5d1a22c0cea8862943a5a1"
+  },
+  "fonts/font-0.ttf": {
+    "bytes": 48280,
+    "sha256": "b0ae3e89a7d3ef2b1838bb4b1ceb0b17cc3435af061eee809d76aa623ff116e9"
+  },
+  "fonts/font-1.ttf": {
+    "bytes": 48308,
+    "sha256": "376427b5322148d8de1e03f263bcca4935a2d60ba71d9f94f4947ab664c711ae"
+  },
+  "fonts/font-3.ttf": {
+    "bytes": 48200,
+    "sha256": "2a8e7f713ee79fbccdef3cef5c787aff47580299f7da60144961e7db2ec08211"
+  },
+  "fonts/font-2.ttf": {
+    "bytes": 48280,
+    "sha256": "b79a2ea7a38f33fd96a282fadb9ce97626bb0724a44d21075859f0e50239993a"
+  },
+  "fonts/fonts.css": {
+    "bytes": 753,
+    "sha256": "e820a8e5a9e7ffd592d26cff1588c96b0fc41982f25c11d0c0111b2f98ff0d35"
+  }
+}

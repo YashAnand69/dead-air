@@ -1,0 +1,8 @@
+node_modules/
+dist/
+*.tsbuildinfo
+.env*
+/public/models/minilm-751bff3/onnx/model_quantized.onnx
+/public/runtime/onnx-1.22.0/ort-wasm-simd-threaded.jsep.wasm
+/docs/demo/
+/docs/dead-air-walkthrough.webm

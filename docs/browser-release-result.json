@@ -1,0 +1,12 @@
+{
+  "url": "http://127.0.0.1:8895/dead-air/",
+  "loadMs": 926,
+  "checks": [
+    "mobile no overflow",
+    "reduced-motion page",
+    "reset Escape",
+    "live on-device inference",
+    "suggestion confirmation opens evidence"
+  ],
+  "errors": []
+}
