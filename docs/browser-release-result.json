@@ -1,12 +1,12 @@
 {
-  "url": "https://yashanand69.github.io/dead-air/",
-  "loadMs": 43574,
+  "url": "http://127.0.0.1:8896/",
+  "loadMs": 1073,
   "checks": [
     "mobile no overflow",
     "reduced-motion page",
     "reset Escape",
     "live on-device inference",
-    "suggestion confirmation opens evidence"
+    "passage search plus manual topic evidence"
   ],
   "errors": []
 }

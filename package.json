@@ -1,1 +1,31 @@
-{"name":"dead-air","version":"0.1.0","private":true,"type":"module","scripts":{"dev":"vite --host 127.0.0.1 --port 8894","build":"tsc -b && vite build","test":"vitest run","prebuild":"node scripts/prepare-assets.mjs","predev":"node scripts/prepare-assets.mjs"},"dependencies":{"@huggingface/transformers":"3.8.1","react":"19.1.0","react-dom":"19.1.0"},"devDependencies":{"@playwright/test":"1.64.1","@types/react":"19.1.2","@types/react-dom":"19.1.2","typescript":"5.8.3","vite":"6.4.5","vitest":"4.1.12"},"overrides":{"sharp":"0.35.5"}}
+{
+  "name": "dead-air",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1 --port 8894",
+    "build": "tsc -b && vite build",
+    "test": "vitest run",
+    "prebuild": "node scripts/prepare-assets.mjs",
+    "predev": "node scripts/prepare-assets.mjs",
+    "test:browser": "node tests/browser-smoke.cjs",
+    "test:upgrade": "node tests/upgrade-check.cjs"
+  },
+  "dependencies": {
+    "@huggingface/transformers": "3.8.1",
+    "react": "19.1.0",
+    "react-dom": "19.1.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.64.1",
+    "@types/react": "19.1.2",
+    "@types/react-dom": "19.1.2",
+    "typescript": "5.8.3",
+    "vite": "6.4.5",
+    "vitest": "4.1.12"
+  },
+  "overrides": {
+    "sharp": "0.35.5"
+  }
+}

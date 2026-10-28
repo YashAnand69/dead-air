@@ -1,0 +1,14 @@
+[
+  {"query":"Did the blackout happen at the studio's displayed time?","discovered":["C1","C2","C3"],"expected":["C1","C2"]},
+  {"query":"Which device supplied the event log's time?","discovered":["C1","C2","C3"],"expected":["C2","C3"]},
+  {"query":"Had anyone repaired the lagging clock?","discovered":["C1","C2","C3"],"expected":["C2"]},
+  {"query":"Was the last log entry the moment Mara began talking?","discovered":["C1","C2","C3"],"expected":["C3"]},
+  {"query":"What time did the mains go down?","discovered":["C1"],"expected":["C1"]},
+  {"query":"Could the voice have come from a playback machine?","discovered":["C1","C2","C3","C4","C5"],"expected":["C4"]},
+  {"query":"Does the operator holding the switch prove a listener heard her?","discovered":["C1","C2","C3","C4","C5"],"expected":["C4"]},
+  {"query":"Which record establishes an independently timed acknowledgment?","discovered":["C1","C2","C3","C4","C5"],"expected":["C5"]},
+  {"query":"Did the recipient copy the same warning identifier?","discovered":["C1","C2","C3","C4","C5"],"expected":["C5","C3","C4"]},
+  {"query":"Can we conclude she escaped from the station?","discovered":["C1","C2","C3","C4","C5"],"expected":["C5"]},
+  {"query":"What did her final words ask a future listener to preserve?","discovered":["C1","C2","C3","C4","C5","C6"],"expected":["C6"]},
+  {"query":"Does restoring the archive tell us her whole life story?","discovered":["C1","C2","C3","C4","C5","C6"],"expected":["C6"]}
+]

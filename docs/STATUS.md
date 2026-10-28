@@ -1,21 +1,29 @@
-# Current status — October 28, 2026
+# Release status — October 29, 2026
 
-The complete game is playable locally, with a refined responsive interface. See RELEASE.md for measured results and limitations. Earlier prototype notes are superseded by this file.
+## Live release
 
-## Complete
+- Primary game: https://dead-air-zeta.vercel.app/
+- Player guide: https://dead-air-zeta.vercel.app/#player-guide
+- Alternate deployment: https://yashanand69.github.io/dead-air/
+- Published Week 4 entry: https://dev.to/yashanand69/dead-air-six-records-two-deductions-and-a-voice-the-archive-almost-lost-3mnl
 
-- Six authored records, two evidence-based deductions, ending, hints, save/resume and reset.
-- Fixed duplicate evidence, cross-stage hint leakage, invalid-save recovery and unsupported story wording.
-- Radio tuning feedback, restrained scroll/evidence animation, progress, reduced-motion controls and keyboard navigation.
-- Original synthesized ambience, optional local-device transcript narration, and full text access without audio.
-- Same-origin pinned model/runtime files and local fonts with notices.
-- Actual browser inference confirmed in development and production-subpath builds. Local production model loading measured 679ms on this machine; this is not public internet performance.
-- Sixteen regression tests and full manual browser journey pass. Mobile and production AI suggestion-confirmation checks pass without page errors.
+The six-record mystery, two evidence-based deductions, ending, hints, save/resume and reset are implemented. The responsive radio interface includes reduced-motion preferences, keyboard controls, optional synthesized ambience and local-device narration. The guide is available before, during and after play.
 
-## AI limits are explicit
+## Verified before the October 29 upgrade
 
-Direct automatic topic answers were unreliable in diagnostic tests. The game now suggests up to two available topics and requires the player to choose before opening authored evidence. On the retained 23-query in-scope diagnostic set, expected-topic suggestion recall was 21/23 after revising the interaction. This is a development diagnostic, not a new independent held-out result or proof of broad accuracy. Facts, unlocks and final deductions never depend on the model.
+Sixteen engine/policy tests passed. Browser checks completed both deductions, reloaded the saved ending, exercised mobile width and reduced motion, cancelled reset, loaded the real on-device model and confirmed a suggested topic. The public Vercel check reported no page errors and measured model readiness at 5,305 ms on one connection. These are automated results, not a human trial or a speed guarantee.
 
-## External completion work
+## October 29 upgrade — local gates passed
 
-Public GitHub Pages deployment is live at https://yashanand69.github.io/dead-air/. CI passed. A fresh public-browser model check completed in 43,574ms with successful inference, topic confirmation, mobile/reduced-motion checks and no page errors. This is one connection measurement, not a guarantee. A genuine friend trial has not happened; docs/PLAYTEST.md contains the guide. No DEV submission has been published. Offline reload and universal speech/screen-reader support are not claimed. The implementation can be played, but contest readiness must not be confused with verified user enjoyment or guaranteed winning prospects.
+- Exact-passage retrieval over 12 passages in recovered records; at most three distinct source records, no invented excerpts or locked-record access.
+- Two-record comparison desk with original transcripts, source labels and timestamps.
+- Explicit offline preparation; reload, saved progress and real inference verified with the browser disconnected.
+- Twenty-two automated tests pass. Full story and saved-ending checks pass.
+- A new 12-query authored diagnostic reports expected-source recall@3 of 12/12 semantic versus 10/12 keyword. This is development evidence, not independent validation.
+- Favicon/social card, readable source, consistent documentation and one remaining runtime WASM in the build.
+
+Public deployment verification is recorded in upgrade-browser-result.json when run against the production URL. The earlier public release's 5,305 ms model load remains a historical measurement, not a guarantee for this upgrade.
+
+## Remaining external evidence
+
+A genuine friend trial is pending. No player quotes, completion-time average, learning benefit or enjoyment measurement is claimed. The .tech domain checkout is prepared but registration and connection are still pending; that category is not yet claimed. Device narration availability varies, and broad accessibility certification is not established.

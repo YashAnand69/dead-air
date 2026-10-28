@@ -1,0 +1,612 @@
+{
+  "date": "2026-10-28T21:11:42.000Z",
+  "queryCount": 12,
+  "source": "authored development diagnostic; not independent validation",
+  "semanticTop3": 12,
+  "keywordTop3": 10,
+  "loadMs": 817,
+  "results": [
+    {
+      "query": "Did the blackout happen at the studio's displayed time?",
+      "discovered": [
+        "C1",
+        "C2",
+        "C3"
+      ],
+      "expected": [
+        "C1",
+        "C2"
+      ],
+      "semantic": [
+        {
+          "id": "warning-checkpoint",
+          "clueId": "C3",
+          "excerpt": "23:14:00 S-2. Operator Mara Vale. Manual carrier active; warning already in progress. Warning identifier NQ-17.",
+          "score": 0.5953955856078601
+        },
+        {
+          "id": "power-monitor",
+          "clueId": "C1",
+          "excerpt": "A separate, synchronized power monitor records mains interruption at 23:18:10. These records may not share a clock.",
+          "score": 0.4920977765852047
+        },
+        {
+          "id": "clock-scope",
+          "clueId": "C2",
+          "excerpt": "No adjustment was made before shutdown. This offset applies to the final transmitter event; the power monitor uses reference time.",
+          "score": 0.4487610232772817
+        }
+      ],
+      "keyword": [
+        {
+          "id": "warning-checkpoint",
+          "clueId": "C3",
+          "excerpt": "23:14:00 S-2. Operator Mara Vale. Manual carrier active; warning already in progress. Warning identifier NQ-17.",
+          "score": 0.5714285714285714
+        },
+        {
+          "id": "clock-offset",
+          "clueId": "C2",
+          "excerpt": "Studio clock S-2 is exactly four minutes slow relative to reference time. The manual transmitter event logger uses S-2.",
+          "score": 0.42857142857142855
+        },
+        {
+          "id": "power-monitor",
+          "clueId": "C1",
+          "excerpt": "A separate, synchronized power monitor records mains interruption at 23:18:10. These records may not share a clock.",
+          "score": 0.2857142857142857
+        }
+      ],
+      "semanticFound": true,
+      "keywordFound": true
+    },
+    {
+      "query": "Which device supplied the event log's time?",
+      "discovered": [
+        "C1",
+        "C2",
+        "C3"
+      ],
+      "expected": [
+        "C2",
+        "C3"
+      ],
+      "semantic": [
+        {
+          "id": "checkpoint-meaning",
+          "clueId": "C3",
+          "excerpt": "This is the final logged checkpoint, not the beginning of the spoken message. The displayed timestamp comes from studio clock S-2, not the power monitor.",
+          "score": 0.667837873249559
+        },
+        {
+          "id": "clock-offset",
+          "clueId": "C2",
+          "excerpt": "Studio clock S-2 is exactly four minutes slow relative to reference time. The manual transmitter event logger uses S-2.",
+          "score": 0.641447896058529
+        },
+        {
+          "id": "power-monitor",
+          "clueId": "C1",
+          "excerpt": "A separate, synchronized power monitor records mains interruption at 23:18:10. These records may not share a clock.",
+          "score": 0.47982568225884925
+        }
+      ],
+      "keyword": [
+        {
+          "id": "clock-offset",
+          "clueId": "C2",
+          "excerpt": "Studio clock S-2 is exactly four minutes slow relative to reference time. The manual transmitter event logger uses S-2.",
+          "score": 0.7142857142857143
+        },
+        {
+          "id": "warning-checkpoint",
+          "clueId": "C3",
+          "excerpt": "23:14:00 S-2. Operator Mara Vale. Manual carrier active; warning already in progress. Warning identifier NQ-17.",
+          "score": 0.42857142857142855
+        },
+        {
+          "id": "power-monitor",
+          "clueId": "C1",
+          "excerpt": "A separate, synchronized power monitor records mains interruption at 23:18:10. These records may not share a clock.",
+          "score": 0.2857142857142857
+        }
+      ],
+      "semanticFound": true,
+      "keywordFound": true
+    },
+    {
+      "query": "Had anyone repaired the lagging clock?",
+      "discovered": [
+        "C1",
+        "C2",
+        "C3"
+      ],
+      "expected": [
+        "C2"
+      ],
+      "semantic": [
+        {
+          "id": "clock-scope",
+          "clueId": "C2",
+          "excerpt": "No adjustment was made before shutdown. This offset applies to the final transmitter event; the power monitor uses reference time.",
+          "score": 0.6231011973178514
+        },
+        {
+          "id": "power-monitor",
+          "clueId": "C1",
+          "excerpt": "A separate, synchronized power monitor records mains interruption at 23:18:10. These records may not share a clock.",
+          "score": 0.415711727518886
+        },
+        {
+          "id": "checkpoint-meaning",
+          "clueId": "C3",
+          "excerpt": "This is the final logged checkpoint, not the beginning of the spoken message. The displayed timestamp comes from studio clock S-2, not the power monitor.",
+          "score": 0.3645045420729516
+        }
+      ],
+      "keyword": [
+        {
+          "id": "archive-claim",
+          "clueId": "C1",
+          "excerpt": "The last manual warning is stamped 23:14:00 on the studio clock. The archive records no confirmed receipt.",
+          "score": 0.2
+        },
+        {
+          "id": "clock-offset",
+          "clueId": "C2",
+          "excerpt": "Studio clock S-2 is exactly four minutes slow relative to reference time. The manual transmitter event logger uses S-2.",
+          "score": 0.2
+        },
+        {
+          "id": "checkpoint-meaning",
+          "clueId": "C3",
+          "excerpt": "This is the final logged checkpoint, not the beginning of the spoken message. The displayed timestamp comes from studio clock S-2, not the power monitor.",
+          "score": 0.2
+        }
+      ],
+      "semanticFound": true,
+      "keywordFound": true
+    },
+    {
+      "query": "Was the last log entry the moment Mara began talking?",
+      "discovered": [
+        "C1",
+        "C2",
+        "C3"
+      ],
+      "expected": [
+        "C3"
+      ],
+      "semantic": [
+        {
+          "id": "checkpoint-meaning",
+          "clueId": "C3",
+          "excerpt": "This is the final logged checkpoint, not the beginning of the spoken message. The displayed timestamp comes from studio clock S-2, not the power monitor.",
+          "score": 0.5282899318831037
+        },
+        {
+          "id": "clock-offset",
+          "clueId": "C2",
+          "excerpt": "Studio clock S-2 is exactly four minutes slow relative to reference time. The manual transmitter event logger uses S-2.",
+          "score": 0.32697353790942163
+        },
+        {
+          "id": "archive-claim",
+          "clueId": "C1",
+          "excerpt": "The last manual warning is stamped 23:14:00 on the studio clock. The archive records no confirmed receipt.",
+          "score": 0.31303574188878264
+        }
+      ],
+      "keyword": [
+        {
+          "id": "checkpoint-meaning",
+          "clueId": "C3",
+          "excerpt": "This is the final logged checkpoint, not the beginning of the spoken message. The displayed timestamp comes from studio clock S-2, not the power monitor.",
+          "score": 0.42857142857142855
+        },
+        {
+          "id": "archive-claim",
+          "clueId": "C1",
+          "excerpt": "The last manual warning is stamped 23:14:00 on the studio clock. The archive records no confirmed receipt.",
+          "score": 0.14285714285714285
+        },
+        {
+          "id": "clock-offset",
+          "clueId": "C2",
+          "excerpt": "Studio clock S-2 is exactly four minutes slow relative to reference time. The manual transmitter event logger uses S-2.",
+          "score": 0.14285714285714285
+        }
+      ],
+      "semanticFound": true,
+      "keywordFound": true
+    },
+    {
+      "query": "What time did the mains go down?",
+      "discovered": [
+        "C1"
+      ],
+      "expected": [
+        "C1"
+      ],
+      "semantic": [
+        {
+          "id": "power-monitor",
+          "clueId": "C1",
+          "excerpt": "A separate, synchronized power monitor records mains interruption at 23:18:10. These records may not share a clock.",
+          "score": 0.3857600454590924
+        }
+      ],
+      "keyword": [
+        {
+          "id": "power-monitor",
+          "clueId": "C1",
+          "excerpt": "A separate, synchronized power monitor records mains interruption at 23:18:10. These records may not share a clock.",
+          "score": 0.5
+        }
+      ],
+      "semanticFound": true,
+      "keywordFound": true
+    },
+    {
+      "query": "Could the voice have come from a playback machine?",
+      "discovered": [
+        "C1",
+        "C2",
+        "C3",
+        "C4",
+        "C5"
+      ],
+      "expected": [
+        "C4"
+      ],
+      "semantic": [
+        {
+          "id": "live-carrier",
+          "clueId": "C4",
+          "excerpt": "\u201cNorth Quay, warning NQ-17. This is Mara, live at the manual carrier. Playback is disconnected. I am holding the switch until you acknowledge. Please confirm NQ-17.\u201d",
+          "score": 0.5340288606225069
+        },
+        {
+          "id": "checkpoint-meaning",
+          "clueId": "C3",
+          "excerpt": "This is the final logged checkpoint, not the beginning of the spoken message. The displayed timestamp comes from studio clock S-2, not the power monitor.",
+          "score": 0.33700065508041854
+        }
+      ],
+      "keyword": [
+        {
+          "id": "checkpoint-meaning",
+          "clueId": "C3",
+          "excerpt": "This is the final logged checkpoint, not the beginning of the spoken message. The displayed timestamp comes from studio clock S-2, not the power monitor.",
+          "score": 0.16666666666666666
+        },
+        {
+          "id": "live-carrier",
+          "clueId": "C4",
+          "excerpt": "\u201cNorth Quay, warning NQ-17. This is Mara, live at the manual carrier. Playback is disconnected. I am holding the switch until you acknowledge. Please confirm NQ-17.\u201d",
+          "score": 0.16666666666666666
+        }
+      ],
+      "semanticFound": true,
+      "keywordFound": true
+    },
+    {
+      "query": "Does the operator holding the switch prove a listener heard her?",
+      "discovered": [
+        "C1",
+        "C2",
+        "C3",
+        "C4",
+        "C5"
+      ],
+      "expected": [
+        "C4"
+      ],
+      "semantic": [
+        {
+          "id": "live-carrier",
+          "clueId": "C4",
+          "excerpt": "\u201cNorth Quay, warning NQ-17. This is Mara, live at the manual carrier. Playback is disconnected. I am holding the switch until you acknowledge. Please confirm NQ-17.\u201d",
+          "score": 0.5188204513671112
+        },
+        {
+          "id": "receipt-limit",
+          "clueId": "C5",
+          "excerpt": "This confirms receipt of that warning; it does not establish what happened afterward.",
+          "score": 0.3671012074099756
+        },
+        {
+          "id": "warning-checkpoint",
+          "clueId": "C3",
+          "excerpt": "23:14:00 S-2. Operator Mara Vale. Manual carrier active; warning already in progress. Warning identifier NQ-17.",
+          "score": 0.3031641414564645
+        }
+      ],
+      "keyword": [
+        {
+          "id": "live-carrier",
+          "clueId": "C4",
+          "excerpt": "\u201cNorth Quay, warning NQ-17. This is Mara, live at the manual carrier. Playback is disconnected. I am holding the switch until you acknowledge. Please confirm NQ-17.\u201d",
+          "score": 0.42857142857142855
+        },
+        {
+          "id": "warning-checkpoint",
+          "clueId": "C3",
+          "excerpt": "23:14:00 S-2. Operator Mara Vale. Manual carrier active; warning already in progress. Warning identifier NQ-17.",
+          "score": 0.14285714285714285
+        },
+        {
+          "id": "independent-receipt",
+          "clueId": "C5",
+          "excerpt": "23:18:02 reference time. West Reach acknowledges North Quay warning NQ-17. Identifier and message received in full. Receiver clock synchronized independently.",
+          "score": 0.14285714285714285
+        }
+      ],
+      "semanticFound": true,
+      "keywordFound": true
+    },
+    {
+      "query": "Which record establishes an independently timed acknowledgment?",
+      "discovered": [
+        "C1",
+        "C2",
+        "C3",
+        "C4",
+        "C5"
+      ],
+      "expected": [
+        "C5"
+      ],
+      "semantic": [
+        {
+          "id": "independent-receipt",
+          "clueId": "C5",
+          "excerpt": "23:18:02 reference time. West Reach acknowledges North Quay warning NQ-17. Identifier and message received in full. Receiver clock synchronized independently.",
+          "score": 0.6312697474183661
+        },
+        {
+          "id": "power-monitor",
+          "clueId": "C1",
+          "excerpt": "A separate, synchronized power monitor records mains interruption at 23:18:10. These records may not share a clock.",
+          "score": 0.6082546614678882
+        },
+        {
+          "id": "live-carrier",
+          "clueId": "C4",
+          "excerpt": "\u201cNorth Quay, warning NQ-17. This is Mara, live at the manual carrier. Playback is disconnected. I am holding the switch until you acknowledge. Please confirm NQ-17.\u201d",
+          "score": 0.4977102232041246
+        }
+      ],
+      "keyword": [
+        {
+          "id": "independent-receipt",
+          "clueId": "C5",
+          "excerpt": "23:18:02 reference time. West Reach acknowledges North Quay warning NQ-17. Identifier and message received in full. Receiver clock synchronized independently.",
+          "score": 0.3333333333333333
+        },
+        {
+          "id": "power-monitor",
+          "clueId": "C1",
+          "excerpt": "A separate, synchronized power monitor records mains interruption at 23:18:10. These records may not share a clock.",
+          "score": 0.16666666666666666
+        },
+        {
+          "id": "clock-offset",
+          "clueId": "C2",
+          "excerpt": "Studio clock S-2 is exactly four minutes slow relative to reference time. The manual transmitter event logger uses S-2.",
+          "score": 0.16666666666666666
+        }
+      ],
+      "semanticFound": true,
+      "keywordFound": true
+    },
+    {
+      "query": "Did the recipient copy the same warning identifier?",
+      "discovered": [
+        "C1",
+        "C2",
+        "C3",
+        "C4",
+        "C5"
+      ],
+      "expected": [
+        "C5",
+        "C3",
+        "C4"
+      ],
+      "semantic": [
+        {
+          "id": "warning-checkpoint",
+          "clueId": "C3",
+          "excerpt": "23:14:00 S-2. Operator Mara Vale. Manual carrier active; warning already in progress. Warning identifier NQ-17.",
+          "score": 0.7644938304865694
+        },
+        {
+          "id": "archive-claim",
+          "clueId": "C1",
+          "excerpt": "The last manual warning is stamped 23:14:00 on the studio clock. The archive records no confirmed receipt.",
+          "score": 0.6568673329194122
+        },
+        {
+          "id": "receipt-limit",
+          "clueId": "C5",
+          "excerpt": "This confirms receipt of that warning; it does not establish what happened afterward.",
+          "score": 0.648850055990508
+        }
+      ],
+      "keyword": [
+        {
+          "id": "warning-checkpoint",
+          "clueId": "C3",
+          "excerpt": "23:14:00 S-2. Operator Mara Vale. Manual carrier active; warning already in progress. Warning identifier NQ-17.",
+          "score": 0.4
+        },
+        {
+          "id": "independent-receipt",
+          "clueId": "C5",
+          "excerpt": "23:18:02 reference time. West Reach acknowledges North Quay warning NQ-17. Identifier and message received in full. Receiver clock synchronized independently.",
+          "score": 0.4
+        },
+        {
+          "id": "archive-claim",
+          "clueId": "C1",
+          "excerpt": "The last manual warning is stamped 23:14:00 on the studio clock. The archive records no confirmed receipt.",
+          "score": 0.2
+        }
+      ],
+      "semanticFound": true,
+      "keywordFound": true
+    },
+    {
+      "query": "Can we conclude she escaped from the station?",
+      "discovered": [
+        "C1",
+        "C2",
+        "C3",
+        "C4",
+        "C5"
+      ],
+      "expected": [
+        "C5"
+      ],
+      "semantic": [
+        {
+          "id": "live-carrier",
+          "clueId": "C4",
+          "excerpt": "\u201cNorth Quay, warning NQ-17. This is Mara, live at the manual carrier. Playback is disconnected. I am holding the switch until you acknowledge. Please confirm NQ-17.\u201d",
+          "score": 0.38379047332001015
+        },
+        {
+          "id": "receipt-limit",
+          "clueId": "C5",
+          "excerpt": "This confirms receipt of that warning; it does not establish what happened afterward.",
+          "score": 0.33298466237342567
+        }
+      ],
+      "keyword": [
+        {
+          "id": "checkpoint-meaning",
+          "clueId": "C3",
+          "excerpt": "This is the final logged checkpoint, not the beginning of the spoken message. The displayed timestamp comes from studio clock S-2, not the power monitor.",
+          "score": 0.16666666666666666
+        },
+        {
+          "id": "live-carrier",
+          "clueId": "C4",
+          "excerpt": "\u201cNorth Quay, warning NQ-17. This is Mara, live at the manual carrier. Playback is disconnected. I am holding the switch until you acknowledge. Please confirm NQ-17.\u201d",
+          "score": 0.16666666666666666
+        }
+      ],
+      "semanticFound": true,
+      "keywordFound": false
+    },
+    {
+      "query": "What did her final words ask a future listener to preserve?",
+      "discovered": [
+        "C1",
+        "C2",
+        "C3",
+        "C4",
+        "C5",
+        "C6"
+      ],
+      "expected": [
+        "C6"
+      ],
+      "semantic": [
+        {
+          "id": "live-carrier",
+          "clueId": "C4",
+          "excerpt": "\u201cNorth Quay, warning NQ-17. This is Mara, live at the manual carrier. Playback is disconnected. I am holding the switch until you acknowledge. Please confirm NQ-17.\u201d",
+          "score": 0.4913063293662796
+        },
+        {
+          "id": "final-signoff",
+          "clueId": "C6",
+          "excerpt": "\u201cIf you find this later, keep the small things. The light above the desk. Someone answering through the rain. Not every silence means nobody heard. North Quay signing off.\u201d",
+          "score": 0.4169578019979181
+        }
+      ],
+      "keyword": [
+        {
+          "id": "archive-claim",
+          "clueId": "C1",
+          "excerpt": "The last manual warning is stamped 23:14:00 on the studio clock. The archive records no confirmed receipt.",
+          "score": 0.14285714285714285
+        },
+        {
+          "id": "clock-scope",
+          "clueId": "C2",
+          "excerpt": "No adjustment was made before shutdown. This offset applies to the final transmitter event; the power monitor uses reference time.",
+          "score": 0.14285714285714285
+        },
+        {
+          "id": "checkpoint-meaning",
+          "clueId": "C3",
+          "excerpt": "This is the final logged checkpoint, not the beginning of the spoken message. The displayed timestamp comes from studio clock S-2, not the power monitor.",
+          "score": 0.14285714285714285
+        }
+      ],
+      "semanticFound": true,
+      "keywordFound": false
+    },
+    {
+      "query": "Does restoring the archive tell us her whole life story?",
+      "discovered": [
+        "C1",
+        "C2",
+        "C3",
+        "C4",
+        "C5",
+        "C6"
+      ],
+      "expected": [
+        "C6"
+      ],
+      "semantic": [
+        {
+          "id": "ending-limit",
+          "clueId": "C6",
+          "excerpt": "You restored the timing and the receipt. The rest of Mara\u2019s story remains unknown.",
+          "score": 0.4402032502250346
+        },
+        {
+          "id": "live-carrier",
+          "clueId": "C4",
+          "excerpt": "\u201cNorth Quay, warning NQ-17. This is Mara, live at the manual carrier. Playback is disconnected. I am holding the switch until you acknowledge. Please confirm NQ-17.\u201d",
+          "score": 0.36217423767379037
+        },
+        {
+          "id": "receipt-limit",
+          "clueId": "C5",
+          "excerpt": "This confirms receipt of that warning; it does not establish what happened afterward.",
+          "score": 0.3537887769594347
+        }
+      ],
+      "keyword": [
+        {
+          "id": "receipt-limit",
+          "clueId": "C5",
+          "excerpt": "This confirms receipt of that warning; it does not establish what happened afterward.",
+          "score": 0.25
+        },
+        {
+          "id": "archive-claim",
+          "clueId": "C1",
+          "excerpt": "The last manual warning is stamped 23:14:00 on the studio clock. The archive records no confirmed receipt.",
+          "score": 0.125
+        },
+        {
+          "id": "final-signoff",
+          "clueId": "C6",
+          "excerpt": "\u201cIf you find this later, keep the small things. The light above the desk. Someone answering through the rain. Not every silence means nobody heard. North Quay signing off.\u201d",
+          "score": 0.125
+        }
+      ],
+      "semanticFound": true,
+      "keywordFound": true
+    }
+  ],
+  "semanticTop1": 9,
+  "keywordTop1": 6
+}

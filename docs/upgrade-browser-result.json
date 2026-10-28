@@ -1,0 +1,14 @@
+{
+  "url": "https://dead-air-zeta.vercel.app",
+  "checkedAt": "2026-10-28T21:24:06.476Z",
+  "checks": [
+    "two-record comparison",
+    "locked records excluded",
+    "real passage inference",
+    "mobile width",
+    "explicit offline package",
+    "offline reload and saved progress",
+    "offline model inference"
+  ],
+  "errors": []
+}

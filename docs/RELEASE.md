@@ -1,30 +1,54 @@
-# Release candidate — October 28, 2026
+# Release evidence
 
-## Implemented and verified locally
+## Current public release — October 28–29, 2026
 
-- Complete six-record case and two deterministic deductions, ending, local save/recovery/reset.
-- Responsive radio interface, progress indicator, scroll reveals, restrained tuning and evidence motion, reduced-motion preference, keyboard controls and native reset dialog.
-- Original receiver ambience and optional local-device transcript reader; no audio needed to solve.
-- Same-origin pinned MiniLM model and runtime; actual fresh-browser model load measured at 937ms on this machine over localhost, followed by a real evidence response. This is not an internet cold-load benchmark.
-- Production TypeScript/Vite build, 16 engine/policy tests, complete Chrome manual journey and ending reload passed. A 390px viewport had no horizontal overflow.
-- Production dependency audit reports zero vulnerabilities after overriding the unused Node image dependency sharp to 0.35.5. Browser inference was checked with the installed dependency set.
+The complete game is deployed at https://dead-air-zeta.vercel.app/. GitHub Pages remains an alternate. The Week 4 write-up is published at https://dev.to/yashanand69/dead-air-six-records-two-deductions-and-a-voice-the-archive-almost-lost-3mnl.
 
-## Model evaluation changed the product
+The six authored records, two deductions, ending, local save/recovery/reset and progressively explicit hints are implemented. All evidence can be read without sound. Receiver ambience is original synthesis; optional transcript reading uses a local device voice when the browser provides one. The in-app player guide explains the purpose, play loop, controls, AI download and saved progress.
 
-The initial model design auto-opened a topic. A 32-query held-out diagnostic returned 14 direct correct routes out of 23 in-scope queries; the simple keyword comparator returned 15. Eight of nine labeled out-of-scope queries abstained. Some labels are inherently debatable (for example asking whether paperwork confirms receipt before specifying an archive record). These small results do not establish a semantic advantage or a 90% accuracy claim.
+## Verification before the upgrade
 
-Consequently, the released interaction asks the player to confirm suggested related topics; it does not treat a similarity score as a factual answer. Locked topics remain filtered and all facts remain authored. The historical result files are retained, not overwritten with a claim of success. Later threshold changes mean those direct-routing numbers are not a metric for the current suggestion policy. More independent query testing is still valuable.
+- TypeScript/Vite production builds and 16 engine/policy tests passed.
+- Chrome automation completed the story and verified saved-ending reload.
+- A 390px mobile viewport had no horizontal overflow; reduced motion and reset Escape behavior passed.
+- Actual public browser model inference and topic confirmation passed without page errors.
+- A Vercel browser check measured model readiness at **5,305 ms**. An earlier Pages check measured **43,574 ms**. Each is one connection measurement; neither is a universal benchmark or a controlled hosting comparison.
+- The full dependency audit reported zero known vulnerabilities after the dependency updates at that time; repeat the audit when dependencies change.
 
-## Limits
+The local automated walkthrough video contains spoilers. It is not a human trial. Browser screenshots and JSON files are artifacts of automated verification rather than user feedback.
 
-One authored case; English-only; no real friend trial yet; no broad screen-reader certification; no offline-reload guarantee. Device narration may not be available. Public cold-download performance must be measured separately. Source inspection reveals the mystery, as expected for an open-source static game. The game is not a proven educational intervention or a guaranteed contest winner.
+## Why the matching interaction changed
 
-The implementation is playable; contest submission remains separate. No DEV article or challenge entry was published during this release work. A real trial and careful submission writing are still required for honest competition evidence.
+The first design automatically opened a best-matching topic. On a 32-query diagnostic, it routed 14 of 23 in-scope queries to the expected topic; the keyword comparator routed 15. Eight of nine labeled out-of-scope questions abstained. Some query labels are debatable. Those results do not establish an advantage over keyword search or broad model accuracy.
 
-## Final local verification
+The revised released interaction asks the player to confirm related-topic suggestions before showing an authored response. Expected-topic recall was 21/23 on the same in-scope queries after development changes. This is a reused diagnostic set, not new independent validation. All facts, legal unlocks and deductions stay authored and deterministic.
 
-Updated Vite, Vitest and Playwright, then reran tests, build and browser verification. The full npm audit (including development dependencies) reported zero known vulnerabilities. Production-subpath model loading measured 926ms over localhost; no public-network claim is inferred. A real automated full-playthrough video is saved locally as docs/dead-air-walkthrough.webm. It contains spoilers and is not a human trial.
+Historical evaluation files remain in `eval/`. New evidence-retrieval work needs fresh queries and an equivalent baseline; it must not inherit the old topic metrics as its own score.
 
-Model/runtime source assets are chunked solely to accommodate upload constraints. `npm run dev` and `npm run build` reconstruct them with SHA-256 verification before serving. Runtime game requests still use ordinary model files.
+## Delivery and integrity
 
-Public release verified: https://yashanand69.github.io/dead-air/ . CI run 40659976540 passed. Fresh public browser model load: 43,574ms on this connection, followed by successful suggestion confirmation and authored evidence. No page errors.
+The pinned quantized MiniLM model and ONNX runtime are served from the same origin. Initial AI use transfers about 44 MB uncompressed. Chunked source assets are reconstructed by `predev` and `prebuild`, with SHA-256 verification before serving.
+
+The October 29 build cleanup removes an emitted WASM file only when its bytes match the explicitly configured public runtime. The configured runtime stays intact. This reduces deployment output by roughly 21.6 MB; it is not a claim of equivalent browser-transfer savings.
+
+The build also emits `offline-assets.json` with paths and a content-derived version. A manifest alone does not prove offline support. Complete preparation, offline reload, inference and update behavior are the release gates for any offline claim.
+
+## October 29 upgrade gate
+
+Passage retrieval and comparison work is being integrated according to UPGRADE-IMPLEMENTATION-PLAN.md. New features remain unverified until the final browser results are recorded. The CI workflow now reconstructs assets once through prebuild and runs a built-site story check before Pages deployment.
+
+## Limits and next evidence
+
+One authored English-language case, limited replay value, and no genuine first-player trial yet. Source inspection reveals the mystery. Device narration varies, and no blanket screen-reader or educational-effectiveness certification is claimed. Friend feedback, permission to quote it, and actual .tech registration remain separate external steps.
+
+## October 29 evidence-search upgrade
+
+Twenty-two unit tests pass. The complete story and ending reload still pass. New browser coverage checks the two-source comparison, allowed-record passage search, mobile width, explicit offline preparation, offline reload with saved progress and actual offline model inference. Results are in upgrade-browser-result.json. The first offline check exposed a Vary-header cache mismatch; static-package matching was corrected and the full flow rerun. Independent review also corrected manual/search presentation races and preserved already complete offline packages on retry.
+
+The build contains one runtime WASM; removal saves about 21.6 MB of deployment output. This does not establish equivalent per-player network savings.
+
+The current AI interaction retrieves exact excerpts over 12 passages; manual authored topics remain available. eval/evidence-search-results.json contains a small authored 12-query diagnostic: expected source recall@3 is 12/12 semantic and 10/12 keyword. The questions were created for development, so this does not establish broad accuracy or measured player benefit. Historical topic-routing diagnostics remain unchanged.
+
+A short scripted preview demonstrates the interface without solving the ending. It is an automated demonstration, not a genuine playtest or human reaction. Friend feedback and .tech registration remain pending.
+
+On the same new diagnostic, top-one expected-source retrieval is 9/12 semantic versus 6/12 keyword. Top-three recall with so few candidate sources is permissive; neither score establishes real player usefulness.

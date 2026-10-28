@@ -1,40 +1,66 @@
 # Dead Air — The Last Sign-off
 
-An original short browser mystery about a radio broadcast and a mistaken archive. Recover six records, compare independent clocks and correct the account using evidence.
+An original browser mystery about a disputed final radio broadcast. Tune three channels, recover six records, compare their sources and decide what the evidence proves.
 
-Play: https://yashanand69.github.io/dead-air/
+**[Play Dead Air](https://dead-air-zeta.vercel.app/)** · **[Player guide](https://dead-air-zeta.vercel.app/#player-guide)** · **[Week 4 build story](https://dev.to/yashanand69/dead-air-six-records-two-deductions-and-a-voice-the-archive-almost-lost-3mnl)**
 
-## Play and run
+For Hacktoberfest Week 4, “Ghost in the Machine,” the haunting is a voice preserved in an archive. The investigation asks you to restore what can be established while accepting what remains unknown.
 
-The game requires no account or API key. Use the radio station buttons or keyboard-operable tuner, inspect records, and support each deduction with two pieces of evidence. Hints are optional. Progress is saved locally; Reset clears it.
+## Playing
 
-Node 20.18+ (CI uses Node 22):
+No account, microphone or API key is required. Use the station buttons or frequency slider, open the available records and support each deduction with two records. Hints become progressively more explicit. Progress saves in this browser on this device; reset asks for confirmation.
+
+Every record is readable without sound. Optional receiver ambience is synthesized, and transcript reading uses a local English device voice when available. Keyboard controls and reduced-motion preferences are supported. A first-player trial is pending, so play duration and enjoyment have not been measured with users.
+
+The primary deployment is Vercel. [GitHub Pages](https://yashanand69.github.io/dead-air/) is an alternate; saved progress does not sync between the two addresses.
+
+## The open model
+
+A pinned, quantized [MiniLM embedding model](https://huggingface.co/Xenova/all-MiniLM-L6-v2) runs through Transformers.js and ONNX Runtime in a browser worker. Player questions are processed on the device. Model and runtime files ship with the application; first model use transfers approximately 44 MB uncompressed, with loading time dependent on the connection.
+
+The model now retrieves up to three exact passages from records the player has recovered, with direct links to the original sources. A comparison desk places two recovered transcripts side by side. Neither feature selects a deduction for the player. Manual topics and browsing remain available without a model download.
+
+The evidence corpus currently contains 12 passages from six authored records. A 12-query development diagnostic found the expected source in the top three results for 12/12 semantic queries and 10/12 keyword queries. Top-one source retrieval was 9/12 semantic and 6/12 keyword. These are small authored diagnostics with a tiny corpus; top-three retrieval is particularly permissive and neither metric establishes player benefit or broad accuracy.
+
+Earlier automatic routing did not beat the keyword comparator on a small diagnostic. That result changed the interaction; it was not discarded. [Release evidence](docs/RELEASE.md) documents the measurements and limits.
+
+## Run locally
+
+Use Node 20.18+; CI runs Node 22.
 
 ```sh
 npm ci
 npm run dev
+```
+
+Open `http://127.0.0.1:8894/`.
+
+```sh
 npm test
 npm run build
 ```
 
-The local address is http://127.0.0.1:8894/. For a repository subpath, build with `DEPLOY_BASE=/dead-air/ npm run build`.
+Model source assets are stored as chunks for reproducible delivery. `predev` and `prebuild` reconstruct them and verify their SHA-256 hashes. For a repository subpath:
 
-## Open model and honest boundaries
+```sh
+DEPLOY_BASE=/dead-air/ npm run build
+```
 
-A pinned quantized MiniLM model runs through Transformers.js/ONNX Runtime in a browser worker. Questions remain on the device. Model and runtime files are shipped with the site, rather than fetched from an inference service. First AI use transfers roughly 44 MB uncompressed; public network speed varies.
+The build removes a byte-identical unused runtime copy. In the player guide, “Save game for offline play” explicitly downloads the versioned app, fonts, model and runtime package. After preparation, offline reload, saved progress and real model search passed a browser check. A first visit needs internet; browser storage can be cleared or evicted. No model prefetch occurs just by entering the archive.
 
-The model suggests related available topics; the player confirms a topic before an authored response opens. It does not generate evidence, grade accusations, or know hidden clues. Early direct-answer routing performed poorly in testing, so automatic answers were removed. This is semantic search, not an autonomous ghost. Manual topics remain available and explicitly labeled.
+## Verification and contributions
 
-Static source includes the solution. The permission checks prevent accidental spoilers through normal UI interactions, not deliberate inspection of source files. No account, private uploads, microphone capture or tracking is required.
+- `npm test`: 22 engine, policy, passage-permission and worker-boundary regression tests.
+- `GAME_URL=http://127.0.0.1:8896/ npm run test:upgrade`: comparison, real retrieval, mobile and offline-preparation/reload/inference checks against a running production preview.
+- `GAME_URL=http://127.0.0.1:8894/ node tests/browser-smoke.cjs`: complete story and saved-ending reload, with the site running and Chrome installed.
+- `node tests/release-check.cjs`: mobile, reduced-motion, reset and live model checks; uses `GAME_URL` when supplied.
+- `eval/`: retained routing diagnostics, with the interpretation in [RELEASE.md](docs/RELEASE.md).
+- [PLAYTEST.md](docs/PLAYTEST.md): the spoiler-free friend trial protocol.
 
-## Access and audio
+CI builds the Pages variant and runs the story regression in Chrome before deployment. Local browser checks are automated checks, not evidence of real-player enjoyment. The static source contains the mystery's solution; normal-play visibility checks are not anti-cheat security.
 
-All evidence is readable without audio. Keyboard controls, captions/transcripts, reduced motion, restart and save recovery are supported. Receiver ambience is original synthesis. Optional transcript reading uses an English local device voice if available; voice quality and availability vary. No recorded actor performance is claimed. Offline reload is not promised.
+## Credits and license
 
-## Verification
+Created with AI assistance under Yash Anand's direction. Yash selected the creative direction and requested the usability, quality, guide and deployment refinements; agents assisted with implementation, research and verification. The story and characters are fictional.
 
-`npm test`: engine and semantic-policy tests. `node tests/browser-smoke.cjs`: complete manual game and saved-ending reload in installed Chrome, with the dev server running. `node eval/browser-eval.cjs` and `node eval/heldout.cjs`: historical routing evaluations (see limitations in docs/RELEASE.md). No real-user trial is claimed. The friend trial guide is in docs/PLAYTEST.md.
-
-## Credits
-
-Created with AI assistance under Yash Anand's direction. Original fictional characters and story. MIT for original source; third-party fonts, model and runtime retain their own licenses. See public/licenses/ATTRIBUTION.md and accompanying notices. Do not present device narration as a human recording or the automated checks as user feedback.
+Original source is MIT-licensed. Fonts, model and runtime retain their respective licenses; see [attribution](public/licenses/ATTRIBUTION.md). Narration is a device voice rather than an actor recording. The project has one English-language case, and broad screen-reader certification and first-player validation remain outstanding.

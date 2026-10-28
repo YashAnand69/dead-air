@@ -1,41 +1,97 @@
-# Dead Air: the ghost can suggest a record, but it cannot rewrite the past
+# Dead Air: six records, two deductions, and a voice the archive almost lost
 
-Draft only. Reapply the current Week 4 submission template and tag before publishing. No entry agreement or publication is implied.
+*This is a submission for the [Hacktoberfest Open-Source AI Challenge Week 4: Ghost in the Machine](https://dev.to/challenges/hacktoberfest-week4-2026-10-26).*
 
-An old radio archive says a warning was never confirmed. A voice says the time is wrong. In Dead Air, you tune three channels, recover six fictional records, and decide what the evidence actually establishes.
+## What I Built
 
-## Play
+An abandoned radio station has a story on file. Its own records give you a reason to doubt it.
 
-Public URL pending deployment verification. Source: https://github.com/YashAnand69/dead-air
+**Dead Air: The Last Sign-off** is a short, original browser mystery set around a fictional station's final broadcast. Tune three channels, recover six records, and support two deductions with evidence. The tension comes from a disagreement between sources: which account deserves to become the official story?
 
-The game includes two deductions, a complete ending, saved progress, manual topic exploration, reduced motion and a fully readable route without sound. Receiver ambience is original synthesis. Optional narration is a local device voice, not a recorded actor.
+For “Ghost in the Machine,” I chose a quiet haunting: a voice preserved in an archive, waiting for someone to read the evidence carefully. There are no jump scares. The player restores what the records support, while accepting that some things remain unknown.
 
-## Why an open model
+The practical goal is modest and specific: give someone a complete, low-friction mystery they can play in a browser during a short break. No account, microphone, API key or installation is required. The full story can be read without sound. Optional local AI helps a player find source passages in their own words; a comparison desk lets them place two recovered records side by side. The final reasoning stays theirs.
 
-A pinned MiniLM embedding model runs through Transformers.js and ONNX Runtime inside a browser worker. It suggests relevant available topics for questions written in the player's own words. There is no inference API key or per-question service. The model and runtime ship with the site, and questions remain on the device.
+## Demo
 
-The model does not write clues, unlock hidden records or grade the solution. Players choose a suggested topic before reading its authored response. Final deductions use explicitly selected evidence and deterministic rules.
+**[Play Dead Air on Vercel](https://dead-air-zeta.vercel.app/)** · **[Read the spoiler-free player guide](https://dead-air-zeta.vercel.app/#player-guide)**
 
-## The failure that changed the interaction
+[Watch the approximately 40-second scripted preview](https://dead-air-zeta.vercel.app/media/dead-air-preview.webm). This demonstrates the interface; it is not a human playtest. It stops before the ending.
 
-The first version auto-opened the best matching topic. That was unreliable: on a small 32-query diagnostic set, only 14 of 23 in-scope questions routed directly to the expected topic, compared with 15 for a simple keyword comparator. We kept the results instead of calling it intelligent conversation.
+Allow roughly 10–15 minutes for a first play; that is a suggested time allowance, not a measured player average.
 
-The revised interface offers related-topic suggestions for confirmation. Its expected-topic recall was 21/23 on the same in-scope diagnostic queries. That is a development check after an interaction change, not a fresh independent evaluation or a claim of broad accuracy. Some questions still produce unhelpful suggestions. All authored topics remain available manually.
+To try it:
 
-## Craft and verification
+1. Select **Enter the archive**, then explore the three channels using the station buttons or frequency slider.
+2. Open the available records. Revisit their transcripts in **Your evidence**.
+3. Choose a conclusion and exactly two supporting records, then select **Check the evidence**.
+4. Follow the records unlocked by your deduction. Hints are available if you get stuck; later hints reveal the solution.
 
-The clock discrepancy, independent receiver acknowledgment and final correction were authored as one coherent fictional case. A review caught an important timing ambiguity: the final transmitter entry is a checkpoint during an ongoing warning, not the start of a message somehow delivered in two seconds.
+A wrong answer preserves progress. The investigation saves in this browser when local storage is available, so you can leave and return on the same device and site. Reset asks for confirmation.
 
-Sixteen automated regression tests cover progression and suggestion permissions. Browser checks exercised the complete manual story, saved-ending reload, mobile width, reduced-motion mode, reset behavior and real on-device inference in the production subpath. Public-internet loading measurements must be added after verification; local loading numbers cannot stand in for them.
+**Optional AI:** select **Enable on-device AI**, ask about the discovered records, then inspect the retrieved passages and open their full source records. First use downloads about 44 MB of model and runtime files. If that is inconvenient, the manual topic buttons let you finish the whole case without downloading the model.
 
-## Human role and assistance
+Sound is optional. Receiver ambience is synthesized; transcript narration, where available, uses a local device voice. The interface also offers reduced motion and keyboard controls.
 
-Yash selected the radio mystery direction, set the quality and usability priorities, and arranged access to a potential friend tester. AI agents assisted with research, implementation and automated checks. No friend feedback or original human voice performance has yet been collected, and none is claimed here.
+## Code
 
-## Limits and next work
+[Source code, setup instructions and license](https://github.com/YashAnand69/dead-air)
 
-One case, English-only, limited replay value. Device narration varies. There is no offline-reload guarantee or blanket accessibility certification. A genuine first-player trial remains necessary before making claims about puzzle clarity or enjoyment. The source intentionally contains the solution; ordinary-play spoiler checks are not anti-cheat security.
+The application is MIT-licensed. Model, runtime and font notices are included separately. It is a static React/TypeScript application built with Vite and hosted on Vercel, with a GitHub Pages deployment as well.
 
-## Before publishing
+## How I Built It
 
-Verify public demo and source links, add a real demo video, report actual friend feedback if obtained, apply current challenge template/tag, check meaningful partner eligibility, and obtain the separate Week 4 entry confirmation. Do not claim a partner category merely because an unrelated library is present.
+### A bounded role for an open model
+
+Dead Air uses the open-weight **Xenova/all-MiniLM-L6-v2** embedding model through **Transformers.js** and **ONNX Runtime** in a browser worker. Pinned model and runtime files are served with the application.
+
+The model searches 12 exact passages from the six authored records. Only records the player has already recovered enter the search corpus. Results show up to three excerpts from distinct source records, each linked to its full transcript. Authored search descriptions help index the passages, but only verbatim evidence is displayed.
+
+The flow is:
+
+**Question → local embedding → recovered-passage ranking → exact excerpts and source links → player interpretation.**
+
+Story progression follows a separate path:
+
+**Selected conclusion + two selected records → deterministic validation → next stage.**
+
+That separation keeps retrieval from rewriting a clue or accepting an unsupported conclusion. Source permissions are checked before inference and again when results are displayed. Questions are processed in the browser rather than sent to an inference service.
+
+### The test that changed the interaction
+
+An earlier version automatically opened the best-matching topic. On a small diagnostic set, it routed only **14 of 23 in-scope questions** to the expected topic; a simple keyword comparator managed **15 of 23**. That was a reason to change the interaction.
+
+The revised design presents suggestions for confirmation. Expected-topic recall was **21/23 on the same in-scope queries**. Because those queries informed development, this is a diagnostic result, not independent validation or evidence of a general advantage over keyword search. Suggestions can still miss the player's intent, which is why manual topics remain available.
+
+The October 29 upgrade gives retrieval a more concrete task: finding passages rather than routing to one of four topic buttons. A new 12-query authored diagnostic found an expected source among the first three results in 12/12 semantic queries and 10/12 keyword queries; the top result was an expected source in 9/12 and 6/12 respectively. The corpus is tiny and the questions are development diagnostics, so these results are not independent validation or a measurement of player benefit.
+
+### What has been verified
+
+- **22 automated tests** cover progression, retrieval permissions, invalid scores and the worker boundary.
+- A browser check completed both deductions and reloaded the saved ending.
+- Public Vercel checks covered mobile width, reduced motion, reset cancellation, actual model inference and exact source-passage retrieval, with no page errors.
+- One fresh Vercel browser check loaded the model in **5.3 seconds**. An earlier GitHub Pages check took **43.6 seconds**. These are individual connection measurements, not a performance promise.
+
+The build now emits only one copy of the runtime WASM, removing about 21.6 MB of deployment output. That is not a claim that each player transfers 21.6 MB less. In the guide, an explicit **Save game for offline play** action caches the app, fonts, model and runtime. Browser checks then disconnected the network, reloaded the game, restored progress and ran actual model search. Storage can still be cleared or evicted, and the first preparation needs internet.
+
+### My contribution and the human decisions
+
+I selected the radio-mystery direction and set the priorities for the experience: a complete story, a distinctive interface, practical play instructions and careful review. I requested successive UI and usability refinements, the in-app guide, and a Vercel deployment so someone could try the game directly. I brought in an external audit and requested staged improvements aimed at the weakest part of the project: useful AI and evidence comparison. I am also arranging a friend playtest to challenge the assumptions that automated checks cannot test.
+
+AI agents assisted with research, implementation, writing and automated verification. Those contributions are part of the build process. My role has been to choose the direction, question the result, set the quality bar and decide what needs another pass. The friend trial is still pending; I am not claiming player feedback or measured enjoyment yet.
+
+## Why Does Open Innovation Matter?
+
+For this project, open tools make the question-to-topic interaction inspectable and self-hostable. Someone can examine the authored evidence, the matching policy and the model revision, then run or adapt the game without an inference-service account or per-question charges.
+
+Local inference also keeps a player's questions out of an external AI service. Hosting the model with the application avoids relying on a live model provider to keep this particular interaction available.
+
+There is a tradeoff: a small mystery still asks for a substantial first model download. A closed API might reduce that download, but would introduce a remote inference dependency. Here, local inference is optional, and the authored topic route keeps the game accessible when the download is a poor fit. Offline play requires successful preparation on that browser, and remains dependent on its stored files being retained.
+
+## What Comes Next
+
+The next useful evidence is a first-time player's experience: where they hesitate, whether the records make sense, and whether AI suggestions help. A friend trial is planned before the final revision of this entry.
+
+Dead Air currently contains one English-language case. Replay value is limited once you know the solution, and device narration varies by browser. Its purpose is a small, finished investigation—not an endless generator of mysteries.
+
+If you try it, tell me **where you first became unsure what to do**. That is the feedback most likely to make the next version better.

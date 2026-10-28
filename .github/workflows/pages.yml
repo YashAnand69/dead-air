@@ -24,10 +24,17 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm test
-      - run: node scripts/prepare-assets.mjs
       - run: npm run build
         env:
           DEPLOY_BASE: /dead-air/
+      - name: Install browser for story regression check
+        run: npx playwright install --with-deps chrome
+      - name: Verify built story and saved ending
+        run: |
+          npx vite preview --base=/dead-air/ --host 127.0.0.1 --port 8894 > /tmp/dead-air-preview.log 2>&1 &
+          node --input-type=module -e "for(let attempt=0;attempt<30;attempt++){try{const response=await fetch('http://127.0.0.1:8894/dead-air/');if(response.ok)process.exit(0);}catch{}await new Promise(resolve=>setTimeout(resolve,500));}process.exit(1);"
+          GAME_URL=http://127.0.0.1:8894/dead-air/ node tests/browser-smoke.cjs
+          GAME_URL=http://127.0.0.1:8894/dead-air/ node tests/upgrade-check.cjs
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
