@@ -61,7 +61,7 @@ That separation keeps retrieval from rewriting a clue or accepting an unsupporte
 
 An earlier version automatically opened the best-matching topic. On a small diagnostic set, it routed only **14 of 23 in-scope questions** to the expected topic; a simple keyword comparator managed **15 of 23**. That was a reason to change the interaction.
 
-The revised design presents suggestions for confirmation. Expected-topic recall was **21/23 on the same in-scope queries**. Because those queries informed development, this is a diagnostic result, not independent validation or evidence of a general advantage over keyword search. Suggestions can still miss the player's intent, which is why manual topics remain available.
+An intermediate design presented topic suggestions for confirmation. Expected-topic recall was **21/23 on the same in-scope queries**. Because those queries informed development, this is a diagnostic result, not independent validation or evidence of a general advantage over keyword search. Suggestions can still miss the player's intent, which is why manual topics remain available.
 
 The October 29 upgrade gives retrieval a more concrete task: finding passages rather than routing to one of four topic buttons. A new 12-query authored diagnostic found an expected source among the first three results in 12/12 semantic queries and 10/12 keyword queries; the top result was an expected source in 9/12 and 6/12 respectively. The corpus is tiny and the questions are development diagnostics, so these results are not independent validation or a measurement of player benefit.
 
@@ -82,7 +82,7 @@ AI agents assisted with research, implementation, writing and automated verifica
 
 ## Why Does Open Innovation Matter?
 
-For this project, open tools make the question-to-topic interaction inspectable and self-hostable. Someone can examine the authored evidence, the matching policy and the model revision, then run or adapt the game without an inference-service account or per-question charges.
+For this project, open tools make the question-to-evidence interaction inspectable and self-hostable. Someone can examine the authored evidence, the matching policy and the model revision, then run or adapt the game without an inference-service account or per-question charges.
 
 Local inference also keeps a player's questions out of an external AI service. Hosting the model with the application avoids relying on a live model provider to keep this particular interaction available.
 
