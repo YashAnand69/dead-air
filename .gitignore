@@ -6,3 +6,4 @@ dist/
 /public/runtime/onnx-1.22.0/ort-wasm-simd-threaded.jsep.wasm
 /docs/demo/
 /docs/dead-air-walkthrough.webm
+.vercel

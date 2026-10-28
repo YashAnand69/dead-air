@@ -272,7 +272,7 @@ export default function App() {
     <div className="reading-progress" aria-hidden="true" />
     <header>
       <a className="brand" href="#main">DEAD AIR<span>FIELD ARCHIVE / 017</span></a>
-      <div className="header-right"><span className="live-dot" /><span className="header-signal">A SIGNAL FROM 1987</span><button onClick={openReset}>Reset</button></div>
+      <div className="header-right"><a href="#player-guide">How to play</a><span className="live-dot" /><span className="header-signal">A SIGNAL FROM 1987</span><button onClick={openReset}>Reset</button></div>
     </header>
     <main id="main">
       {!started ? <section className="intro">
@@ -318,6 +318,27 @@ export default function App() {
         </div> : <section className="ending" id="ending" data-reveal><p className="eyebrow">ARCHIVE 017 / CORRECTED</p><div className="archive-stamp" aria-hidden="true">RECEIPT<br />CONFIRMED</div><h2 id="ending-title" tabIndex={-1}>Someone <em>heard.</em></h2><p>The studio clock was four minutes slow. NQ-17 was already being transmitted at the 23:18:00 reference-time checkpoint and acknowledged at 23:18:02—before the power failed at 23:18:10.</p><div className="ending-timeline"><div><strong>23:18:00</strong><span>Transmission checkpoint</span></div><div><strong>23:18:02</strong><span>Receipt confirmed</span></div><div><strong>23:18:10</strong><span>Power interrupted</span></div></div><p>You restored what the records can prove. What happened afterward remains unknown.</p><blockquote>{clues[5].transcript}</blockquote><div className="ending-actions"><button onClick={() => selectRecord('C6', true)}>Read the final sign-off ↗</button><button onClick={openReset}>Begin again</button></div><p className="fine">Your corrected archive is saved on this device. This is the end of this original fictional case.</p></section>}
         {notice && <div className="notice" role="status"><span>{notice}</span><button aria-label="Dismiss message" onClick={() => setNotice('')}>×</button></div>}
       </>}
+      <section className="player-guide" id="player-guide" aria-labelledby="guide-title">
+        <p className="eyebrow">YOUR SPOILER-FREE FIELD GUIDE</p>
+        <h2 id="guide-title">A small mystery.<br />A reason to look closer.</h2>
+        <p className="guide-lead">Dead Air is an interactive fictional radio mystery. You investigate six records from an abandoned station to correct a disputed account of its final broadcast.</p>
+        <div className="guide-grid">
+          <article><h3>Why play?</h3><p>The puzzle is about separating an assumption from what the evidence actually supports. Compare sources, question timestamps and make a conclusion you can justify. It is a short story-driven game, not a real investigation tool or a proven learning programme.</p></article>
+          <article><h3>What do I need?</h3><p>A browser and a little curiosity. Allow around 10–15 minutes for a first try; your pace may vary. No account, microphone or specialist knowledge is needed. Every record is readable, so sound is optional.</p></article>
+        </div>
+        <details open><summary>How to play — five steps</summary><ol>
+          <li><strong>Enter the archive.</strong> Read your current objective at the top of the investigation.</li>
+          <li><strong>Tune between the three channels.</strong> Use the station buttons or frequency slider. Open each available record to recover it.</li>
+          <li><strong>Compare the transcripts.</strong> Revisit recovered records in “Your evidence.” Pay attention to their sources and what each one can actually establish.</li>
+          <li><strong>Make a deduction.</strong> Choose a conclusion and exactly two supporting records, then select “Check the evidence.” A wrong answer preserves your progress.</li>
+          <li><strong>Follow the newly unlocked records.</strong> Complete the second deduction to reach the ending. If stuck, request a hint; later hints reveal more, including the solution.</li>
+        </ol></details>
+        <details><summary>What does the AI do?</summary><p>The optional on-device MiniLM model compares your question with available topics and suggests related ones. You choose the intended topic before reading an authored response. It does not invent the story, verify your reasoning or solve the case for you, and suggestions can be wrong.</p><p>First use downloads roughly 44 MB of model and runtime files and may take a minute or longer on a slow connection. Questions are processed in your browser, not sent to an AI service. You can cancel the download and use the manual topic buttons instead. The entire mystery is playable without AI.</p></details>
+        <details><summary>Sound, movement and controls</summary><p>Receiver ambience is optional. “Read transcript” uses a local device voice when your browser provides one; it is not an original recording. Use “Less motion” during play to reduce animation. Keyboard users can move with Tab, activate buttons with Enter or Space, and adjust the frequency slider with arrow keys.</p></details>
+        <details><summary>Saving progress and starting again</summary><p>Progress is stored in this browser on this device when local storage is available. It does not sync between devices or between this site and another hosting address. Clearing browser data may remove it. “Reset” asks for confirmation before clearing your investigation; display preferences remain.</p><p>If AI cannot load, continue using manual topics. If a record is unavailable, check your objective: some records unlock after a deduction. Keep the tab open if the game reports that saving is unavailable.</p></details>
+        <p className="fine">Original fiction. The aim is to restore what the records support—not to guess facts the archive cannot prove.</p>
+        <a className="guide-return" href="#main">Back to the archive ↑</a>
+      </section>
     </main>
     <footer><span>DEAD AIR · THE LAST SIGN-OFF</span><span>Original fiction / Open-model investigation / No account required</span></footer>
     <dialog ref={resetDialog} className="reset-dialog" aria-labelledby="reset-title" onCancel={event => { event.preventDefault(); closeReset(); }} onClose={() => { if (resetOpen) closeReset(); }}><h2 id="reset-title">Start a new investigation?</h2><p>This clears your saved progress on this device. Your display preferences are kept.</p><div><button autoFocus onClick={closeReset}>Keep my progress</button><button onClick={reset}>Reset archive</button></div></dialog>
