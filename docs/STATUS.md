@@ -18,4 +18,4 @@ Direct automatic topic answers were unreliable in diagnostic tests. The game now
 
 ## External completion work
 
-Public GitHub Pages upload/verification is in progress. A genuine friend trial has not happened; docs/PLAYTEST.md contains the guide. No DEV submission has been published. Offline reload and universal speech/screen-reader support are not claimed. The implementation can be played, but contest readiness must not be confused with verified user enjoyment or guaranteed winning prospects.
+Public GitHub Pages deployment is live at https://yashanand69.github.io/dead-air/. CI passed. A fresh public-browser model check completed in 43,574ms with successful inference, topic confirmation, mobile/reduced-motion checks and no page errors. This is one connection measurement, not a guarantee. A genuine friend trial has not happened; docs/PLAYTEST.md contains the guide. No DEV submission has been published. Offline reload and universal speech/screen-reader support are not claimed. The implementation can be played, but contest readiness must not be confused with verified user enjoyment or guaranteed winning prospects.

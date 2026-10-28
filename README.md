@@ -2,6 +2,8 @@
 
 An original short browser mystery about a radio broadcast and a mistaken archive. Recover six records, compare independent clocks and correct the account using evidence.
 
+Play: https://yashanand69.github.io/dead-air/
+
 ## Play and run
 
 The game requires no account or API key. Use the radio station buttons or keyboard-operable tuner, inspect records, and support each deduction with two pieces of evidence. Hints are optional. Progress is saved locally; Reset clears it.

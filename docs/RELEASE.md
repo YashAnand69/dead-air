@@ -26,3 +26,5 @@ The implementation is playable; contest submission remains separate. No DEV arti
 Updated Vite, Vitest and Playwright, then reran tests, build and browser verification. The full npm audit (including development dependencies) reported zero known vulnerabilities. Production-subpath model loading measured 926ms over localhost; no public-network claim is inferred. A real automated full-playthrough video is saved locally as docs/dead-air-walkthrough.webm. It contains spoilers and is not a human trial.
 
 Model/runtime source assets are chunked solely to accommodate upload constraints. `npm run dev` and `npm run build` reconstruct them with SHA-256 verification before serving. Runtime game requests still use ordinary model files.
+
+Public release verified: https://yashanand69.github.io/dead-air/ . CI run 40659976540 passed. Fresh public browser model load: 43,574ms on this connection, followed by successful suggestion confirmation and authored evidence. No page errors.
